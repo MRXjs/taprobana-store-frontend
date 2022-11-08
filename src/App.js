@@ -8,7 +8,7 @@ import "./App.css";
 import ProductDetails from "./component/Product/ProductDetails.js";
 import Products from "./component/Product/Products.js";
 import Search from "./component/Product/Search.js";
-import LogInSignUp from "./component/User/LogInSingUp";
+import LogInSignUp from "./component/User/LogInSignUp";
 
 const App = () => {
   useEffect(() => {
