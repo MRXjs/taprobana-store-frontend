@@ -81,6 +81,7 @@ const UpdateProfile = ({ history }) => {
 
               <form
                 className="updateProfileForm"
+                encType="multipart/form-data"
                 onSubmit={updateProfileSubmit}
               >
                 <div className="updateProfileName">

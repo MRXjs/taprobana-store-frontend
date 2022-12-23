@@ -85,13 +85,12 @@
   cursor: pointer;
   transition: all 0.5s;
 }
-
 .category-link:hover {
   color: tomato;
 }
 
 .filterBox > fieldset {
-  border: 1px solid 329;
+  border: 1px solid rgba(0, 0, 0, 0.329);
 }
 
 @media screen and (max-width: 600px) {

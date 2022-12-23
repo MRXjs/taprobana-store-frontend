@@ -1,42 +1,101 @@
-import React from "react";
-import { ReactNavbar } from "overlay-navbar";
-import logo from "../../../images/logo.png";
+import React, { Fragment, useState } from "react";
+import { useHistory } from "react-router-dom";
+import {
+  AppBar,
+  Button,
+  Tab,
+  Tabs,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@material-ui/core";
+import NavDrawer from "./NavDrawer";
+import "./Header.css";
+import { useSelector } from "react-redux";
+import UserOptions from "./UserOptions";
+import SearchIcon from "@material-ui/icons/Search";
 
 const Header = () => {
-  const options = {
-    burgerColorHover: "#eb4034",
-    logo,
-    logoWidth: "20vmax",
-    navColor1: "white",
-    logoHoverSize: "10px",
-    logoHoverColor: "#eb4034",
-    link1Text: "Home",
-    link2Text: "Products",
-    link3Text: "Contact",
-    link4Text: "About",
-    link1Url: "/",
-    link2Url: "/products",
-    link3Url: "/contact",
-    link4Url: "/about",
-    link1Size: "1.3vmax",
-    link1Color: "rgba(35, 35, 35,0.8)",
-    nav1justifyContent: "flex-end",
-    nav2justifyContent: "flex-end",
-    nav3justifyContent: "flex-start",
-    nav4justifyContent: "flex-start",
-    link1ColorHover: "#eb4034",
-    link1Margin: "1vmax",
-    profileIconUrl: "/login",
-    profileIconColor: "rgba(35, 35, 35,0.8)",
-    searchIconColor: "rgba(35, 35, 35,0.8)",
-    cartIconColor: "rgba(35, 35, 35,0.8)",
-    profileIconColorHover: "#eb4034",
-    searchIconColorHover: "#eb4034",
-    cartIconColorHover: "#eb4034",
-    cartIconMargin: "1vmax",
-  };
+  const history = useHistory();
+  const [tabValue, setTabValue] = useState();
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  const { isAuthenticated, user } = useSelector((state) => state.user);
 
-  return <ReactNavbar {...options} />;
+  const pages = [
+    { name: "Home", func: home },
+    { name: "Products", func: products },
+    { name: "Search", func: search, icon: <SearchIcon /> },
+    { name: "Contact", func: contact },
+    { name: "About", func: about },
+  ];
+
+  function home() {
+    history.push("/");
+  }
+
+  function products() {
+    history.push("/products");
+  }
+
+  function contact() {
+    history.push("/contact");
+  }
+
+  function about() {
+    history.push("/about");
+  }
+
+  function loginRegister() {
+    history.push("/login");
+  }
+
+  function search() {
+    history.push("/search");
+  }
+
+  return (
+    <Fragment>
+      <AppBar className="nav-app-bar">
+        <Toolbar className="toolbar" classes="nav-toolbar">
+          <Typography color="primary">TAPROBANA</Typography>
+          {isMatch ? (
+            <NavDrawer pages={pages} />
+          ) : (
+            <Tabs
+              className="nav-tabs"
+              textColor="inherit"
+              value={tabValue}
+              onChange={(e, value) => setTabValue(value)}
+              indicatorColor="secondary"
+            >
+              {pages.map((page) => (
+                <Tab
+                  icon={page.icon}
+                  label={page.name === "Search" ? "" : page.name}
+                  className="nav-tab"
+                  onClick={page.func}
+                />
+              ))}
+            </Tabs>
+          )}
+          {isAuthenticated ? (
+            <UserOptions user={user} className="nav-user-option" />
+          ) : (
+            <Button
+              onClick={loginRegister}
+              color="primary"
+              variant="contained"
+              className="register-btn"
+            >
+              Login Or Register
+            </Button>
+          )}
+        </Toolbar>
+      </AppBar>
+    </Fragment>
+  );
 };
 
 export default Header;

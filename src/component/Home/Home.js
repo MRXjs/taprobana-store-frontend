@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect } from "react";
+import { CgMouse } from "react-icons/all";
 import "./Home.css";
 import ProductCard from "./ProductCard.js";
 import MetaData from "../layout/MetaData";
-import { CgMouse } from "react-icons/cg";
-import { clearErrors, getProduct } from "../../actions/productAction.js";
+import { clearErrors, getProduct } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
@@ -19,7 +19,7 @@ const Home = () => {
       dispatch(clearErrors());
     }
     dispatch(getProduct());
-  }, [dispatch, error]);
+  }, [dispatch, error, alert]);
 
   return (
     <Fragment>
@@ -28,6 +28,7 @@ const Home = () => {
       ) : (
         <Fragment>
           <MetaData title="TaprobanaStore" />
+
           <div className="banner">
             <p>Welcome to Taprobana</p>
             <h1>FIND AMAZING PRODUCTS BELOW</h1>
@@ -38,11 +39,14 @@ const Home = () => {
               </button>
             </a>
           </div>
+
           <h2 className="homeHeading">Featured Products</h2>
 
           <div className="container" id="container">
             {products &&
-              products.map((product) => <ProductCard product={product} />)}
+              products.map((product) => (
+                <ProductCard key={product._id} product={product} />
+              ))}
           </div>
         </Fragment>
       )}

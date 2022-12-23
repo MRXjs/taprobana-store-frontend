@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import { useSelector } from "react-redux";
 import CheckoutSteps from "../Cart/CheckoutSteps";
+import { useSelector } from "react-redux";
 import MetaData from "../layout/MetaData";
 import "./ConfirmOrder.css";
 import { Link } from "react-router-dom";
@@ -21,17 +21,18 @@ const ConfirmOrder = ({ history }) => {
 
   const totalPrice = subtotal + tax + shippingCharges;
 
-  const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country},`;
+  const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
 
   const proceedToPayment = () => {
     const data = {
       subtotal,
-      shippingInfo,
+      shippingCharges,
       tax,
       totalPrice,
     };
 
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
+
     history.push("/process/payment");
   };
 
@@ -69,38 +70,40 @@ const ConfirmOrder = ({ history }) => {
                       {item.name}
                     </Link>{" "}
                     <span>
-                      {item.quantity} X ${item.price} ={" "}
-                      <b>${item.price * item.quantity}</b>
+                      {item.quantity} X £{item.price} ={" "}
+                      <b>£{item.price * item.quantity}</b>
                     </span>
                   </div>
                 ))}
             </div>
           </div>
         </div>
-        {/* */}
+        {/*  */}
         <div>
           <div className="orderSummary">
             <Typography>Order Summery</Typography>
             <div>
               <div>
-                <p>Subtotal</p>
-                <span>${subtotal}</span>
+                <p>Subtotal:</p>
+                <span>£{subtotal}</span>
               </div>
               <div>
                 <p>Shipping Charges:</p>
-                <span>${shippingCharges}</span>
+                <span>£{shippingCharges}</span>
               </div>
               <div>
-                <p>GST</p>
-                <span>${tax}</span>
+                <p>GST:</p>
+                <span>£{tax}</span>
               </div>
             </div>
+
             <div className="orderSummaryTotal">
               <p>
-                <b>Total</b>
+                <b>Total:</b>
               </p>
-              <span>${totalPrice}</span>
+              <span>£{totalPrice}</span>
             </div>
+
             <button onClick={proceedToPayment}>Proceed To Payment</button>
           </div>
         </div>

@@ -40,6 +40,7 @@
   background-color: tomato;
   font: 400 1vmax "Roboto";
   color: white;
+  text-decoration: none;
   padding: 0.5vmax;
   width: 30%;
   margin: 4vmax;
@@ -60,7 +61,7 @@
 
 .profileContainer > div:last-child > div > h4 {
   color: black;
-  font: 400 1.7vmax "Roboto";
+  font: 400 1.2vmax "Roboto";
 }
 
 .profileContainer > div:last-child > div > p {

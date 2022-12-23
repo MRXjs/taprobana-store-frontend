@@ -1,7 +1,31 @@
+.nav-app-bar {
+  background: #063970 !important;
+}
+
+.nav-toolbar {
+}
+
+.nav-tabs {
+  margin-left: 25vmax;
+}
+
+.register-btn {
+  margin-left: auto !important;
+}
+
+.menu-icon {
+  color: white;
+}
+
+.nav-drawer-list {
+  display: flex;
+  flex-direction: column;
+}
+
 .speedDial {
   position: fixed;
   right: 3vmax;
-  top: 3vmax;
+  top: 0.2vmax;
 }
 
 .speedDialIcon {

@@ -1,3 +1,7 @@
+.CheckoutStepsContainer {
+  margin-top: 4vmax;
+}
+
 .MuiStepConnector-line {
   display: none !important;
 }

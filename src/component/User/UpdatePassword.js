@@ -7,8 +7,8 @@ import { useAlert } from "react-alert";
 import { UPDATE_PASSWORD_RESET } from "../../constants/userConstants";
 import MetaData from "../layout/MetaData";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
-import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import LockIcon from "@material-ui/icons/Lock";
+import VpnKeyIcon from "@material-ui/icons/VpnKey";
 
 const UpdatePassword = ({ history }) => {
   const dispatch = useDispatch();
@@ -28,6 +28,7 @@ const UpdatePassword = ({ history }) => {
     myForm.set("oldPassword", oldPassword);
     myForm.set("newPassword", newPassword);
     myForm.set("confirmPassword", confirmPassword);
+
     dispatch(updatePassword(myForm));
   };
 

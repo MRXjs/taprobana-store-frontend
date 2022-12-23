@@ -13,7 +13,7 @@ import {
 } from "@stripe/react-stripe-js";
 
 import axios from "axios";
-import "./Payment.css";
+import "./payment.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
@@ -47,6 +47,7 @@ const Payment = ({ history }) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
     payBtn.current.disabled = true;
 
     try {
@@ -135,7 +136,7 @@ const Payment = ({ history }) => {
 
           <input
             type="submit"
-            value={`Pay - $${orderInfo && orderInfo.totalPrice}`}
+            value={`Pay - ₹${orderInfo && orderInfo.totalPrice}`}
             ref={payBtn}
             className="paymentFormBtn"
           />

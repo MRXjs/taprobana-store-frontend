@@ -1,9 +1,8 @@
-import React from "react";
+import React, { Fragment, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Fragment, useEffect } from "react";
-import Loader from "../layout/Loader/Loader.js";
-import { Link } from "react-router-dom";
 import MetaData from "../layout/MetaData";
+import Loader from "../layout/Loader/Loader";
+import { Link } from "react-router-dom";
 import "./Profile.css";
 
 const Profile = ({ history }) => {
@@ -14,7 +13,6 @@ const Profile = ({ history }) => {
       history.push("/login");
     }
   }, [history, isAuthenticated]);
-
   return (
     <Fragment>
       {loading ? (

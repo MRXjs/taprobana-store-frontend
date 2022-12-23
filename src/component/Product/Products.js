@@ -7,17 +7,17 @@ import ProductCard from "../Home/ProductCard";
 import Pagination from "react-js-pagination";
 import Slider from "@material-ui/core/Slider";
 import { useAlert } from "react-alert";
-import { Typography } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
 
 const categories = [
   "Laptop",
-  "Movie",
-  "Bottom",
-  "Chair",
   "Mouse",
-  "Watche",
-  "Clothes",
+  "Keyboard",
+  "Gaming Desktops",
+  "Monitors",
+  "Camera",
+  "MRX Merch",
 ];
 
 const Products = ({ match }) => {
@@ -35,7 +35,7 @@ const Products = ({ match }) => {
     products,
     loading,
     error,
-    productCount,
+    productsCount,
     resultPerPage,
     filteredProductsCount,
   } = useSelector((state) => state.products);
@@ -49,16 +49,16 @@ const Products = ({ match }) => {
   const priceHandler = (event, newPrice) => {
     setPrice(newPrice);
   };
+  let count = filteredProductsCount;
 
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
+
     dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [dispatch, keyword, currentPage, price, category, ratings, alert, error]);
-
-  let count = filteredProductsCount;
 
   return (
     <Fragment>
@@ -66,7 +66,7 @@ const Products = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title="PRODUCTS -- TAPROBANA" />
+          <MetaData title="PRODUCTS -- ECOMMERCE" />
           <h2 className="productsHeading">Products</h2>
 
           <div className="products">
@@ -86,6 +86,7 @@ const Products = ({ match }) => {
               min={0}
               max={25000}
             />
+
             <Typography>Categories</Typography>
             <ul className="categoryBox">
               {categories.map((category) => (
@@ -98,6 +99,7 @@ const Products = ({ match }) => {
                 </li>
               ))}
             </ul>
+
             <fieldset>
               <Typography component="legend">Ratings Above</Typography>
               <Slider
@@ -105,20 +107,19 @@ const Products = ({ match }) => {
                 onChange={(e, newRating) => {
                   setRatings(newRating);
                 }}
-                arial-labelledby="countinuouns-slider"
+                aria-labelledby="continuous-slider"
                 valueLabelDisplay="auto"
                 min={0}
                 max={5}
               />
             </fieldset>
           </div>
-
           {resultPerPage < count && (
             <div className="paginationBox">
               <Pagination
                 activePage={currentPage}
                 itemsCountPerPage={resultPerPage}
-                totalItemsCount={productCount}
+                totalItemsCount={productsCount}
                 onChange={setCurrentPageNo}
                 nextPageText="Next"
                 prevPageText="Prev"
