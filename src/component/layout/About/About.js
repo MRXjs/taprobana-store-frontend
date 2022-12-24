@@ -1,13 +1,12 @@
 import React from "react";
 import "./aboutSection.css";
-import { Button, Typography, Avatar } from "@material-ui/core";
 import MRX from "../../../images/aboutUsCover.png";
 
 const About = () => {
   return (
     <div className="about">
       <div className="content">
-        <img src={MRX} />
+        <img src={MRX} alt="about cover image" />
         <div className="text">
           <h1>About Us</h1>
           <h5>Community or Organization</h5>

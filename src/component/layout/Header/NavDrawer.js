@@ -4,12 +4,10 @@ import {
   Drawer,
   IconButton,
   List,
-  ListItemButton,
   ListItemIcon,
   ListItemText,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import CloseIcon from "@material-ui/icons/Close";
 import "./Header.css";
 
 const NavDrawer = ({ pages }) => {
