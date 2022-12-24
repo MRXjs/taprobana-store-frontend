@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/taprobana-store-frontend/static/css/main.34b6a002.chunk.css",
+    "main.js": "/taprobana-store-frontend/static/js/main.1475a617.chunk.js",
+    "main.js.map": "/taprobana-store-frontend/static/js/main.1475a617.chunk.js.map",
+    "runtime-main.js": "/taprobana-store-frontend/static/js/runtime-main.55afa12e.js",
+    "runtime-main.js.map": "/taprobana-store-frontend/static/js/runtime-main.55afa12e.js.map",
+    "static/js/2.1d1f576b.chunk.js": "/taprobana-store-frontend/static/js/2.1d1f576b.chunk.js",
+    "static/js/2.1d1f576b.chunk.js.map": "/taprobana-store-frontend/static/js/2.1d1f576b.chunk.js.map",
+    "index.html": "/taprobana-store-frontend/index.html",
+    "static/css/main.34b6a002.chunk.css.map": "/taprobana-store-frontend/static/css/main.34b6a002.chunk.css.map",
+    "static/js/2.1d1f576b.chunk.js.LICENSE.txt": "/taprobana-store-frontend/static/js/2.1d1f576b.chunk.js.LICENSE.txt",
+    "static/media/Appstore.d0c58399.png": "/taprobana-store-frontend/static/media/Appstore.d0c58399.png",
+    "static/media/Profile.697fdcd2.png": "/taprobana-store-frontend/static/media/Profile.697fdcd2.png",
+    "static/media/aboutUsCover.634ef983.png": "/taprobana-store-frontend/static/media/aboutUsCover.634ef983.png",
+    "static/media/contactUsCover.7202581b.png": "/taprobana-store-frontend/static/media/contactUsCover.7202581b.png",
+    "static/media/Home.css": "/taprobana-store-frontend/static/media/cover.e5940638.jpg",
+    "static/media/logo.65787333.png": "/taprobana-store-frontend/static/media/logo.65787333.png",
+    "static/media/playstore.82b48319.png": "/taprobana-store-frontend/static/media/playstore.82b48319.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.55afa12e.js",
+    "static/js/2.1d1f576b.chunk.js",
+    "static/css/main.34b6a002.chunk.css",
+    "static/js/main.1475a617.chunk.js"
+  ]
+}
