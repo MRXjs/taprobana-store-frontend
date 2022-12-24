@@ -69,7 +69,7 @@ function App() {
   // window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   return (
-    <Router>
+    <Router basename="taprobana-store-frontend">
       <Header />
 
       {stripeApiKey && (

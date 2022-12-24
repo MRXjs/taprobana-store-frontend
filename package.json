@@ -58,5 +58,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:4000"
+  "proxy": "https://taprobanastore.ytdonline.com",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }
